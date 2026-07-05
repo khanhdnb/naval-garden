@@ -20,6 +20,7 @@ Vườn này lớn dần theo mỗi chương mình học. Mỗi ý tưởng là 
 - 🌿 [[notes/03-cuoc-choi-dai-han|03 · Cuộc chơi dài hạn]] — Lãi kép của vốn · quan hệ · danh tiếng
 - 🌿 [[notes/04-ganh-vac-trach-nhiem|04 · Gánh vác trách nhiệm]] — Dám gắn tên thật vào rủi ro
 - 🌿 [[notes/05-von-chu-so-huu|05 · Vốn chủ sở hữu]] — Không có equity, không có tự do tài chính
+- 🌿 [[notes/06-don-bay|06 · Tìm vị trí có đòn bẩy]] — Nhân công · Vốn · Code+Media; kiếm tiền bằng trí óc
 
 ## Áp dụng vào đời mình
 
