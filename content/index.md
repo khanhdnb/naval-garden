@@ -12,6 +12,9 @@ Vườn này ghi lại **toàn bộ cuốn sách** theo cách của mình — ch
 
 ---
 
+## 🗺️ Recap nhanh cả cuốn
+- ⭐ [[notes/23-mindmap-recap|Mindmap recap toàn bộ cuốn sách]] — bản đồ nội dung một trang
+
 ## 📖 Mở đầu
 - 🌿 [[notes/00-mo-dau|00 · Mở đầu]] — Thịnh vượng & hạnh phúc là **kỹ năng học được**
 
