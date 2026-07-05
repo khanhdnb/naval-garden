@@ -1,7 +1,3 @@
----
-title: "00 · Mở đầu"
----
-
 # 00 — Mở đầu (tr. 11–30)
 
 *Lời nói đầu · Chú thích về sách · Lời tựa (Tim Ferriss) · Chú thích của Eric · Mốc thời gian · Lời tự thuật của Naval*

@@ -1,7 +1,3 @@
----
-title: "01 · Hiểu cách tạo nên sự thịnh vượng"
----
-
 # 01 — Hiểu cách tạo nên sự thịnh vượng (tr. 33–44)
 
 *PHẦN I · Xây dựng sự thịnh vượng — chương nền tảng*
