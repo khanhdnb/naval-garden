@@ -16,6 +16,10 @@ Vườn này lớn dần theo mỗi chương mình học. Mỗi ý tưởng là 
 
 - 🌿 [[notes/00-mo-dau|00 · Mở đầu]] — Thịnh vượng & hạnh phúc là **kỹ năng học được**
 - 🌿 [[notes/01-hieu-cach-tao-thinh-vuong|01 · Hiểu cách tạo nên sự thịnh vượng]] — *Productize Yourself*
+- 🌿 [[notes/02-kien-thuc-chuyen-biet|02 · Kiến thức chuyên biệt]] — *Escape competition through authenticity*
+- 🌿 [[notes/03-cuoc-choi-dai-han|03 · Cuộc chơi dài hạn]] — Lãi kép của vốn · quan hệ · danh tiếng
+- 🌿 [[notes/04-ganh-vac-trach-nhiem|04 · Gánh vác trách nhiệm]] — Dám gắn tên thật vào rủi ro
+- 🌿 [[notes/05-von-chu-so-huu|05 · Vốn chủ sở hữu]] — Không có equity, không có tự do tài chính
 
 ## Áp dụng vào đời mình
 
@@ -27,8 +31,8 @@ Vườn này lớn dần theo mỗi chương mình học. Mỗi ý tưởng là 
 
 **PHẦN I — THỊNH VƯỢNG**
 - [x] Hiểu cách tạo nên sự thịnh vượng
-- [ ] Tìm kiếm & xây dựng kiến thức chuyên biệt
-- [ ] Cuộc chơi dài hạn · Trách nhiệm · Vốn chủ sở hữu
+- [x] Tìm kiếm & xây dựng kiến thức chuyên biệt
+- [x] Cuộc chơi dài hạn · Trách nhiệm · Vốn chủ sở hữu
 - [ ] Đòn bẩy · Phán đoán · Ưu tiên & tập trung
 - [ ] Làm như chơi · May mắn · Kiên nhẫn
 - [ ] Kỹ năng phán đoán · Mô hình tư duy · Yêu việc đọc
