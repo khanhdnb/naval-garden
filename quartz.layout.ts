@@ -5,11 +5,16 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    // Mobile reading redesign (rendered on all pages, CSS-gated to <=768px)
+    Component.ReadingProgress(),
+    Component.TocFab(),
+    Component.ReaderSheet(),
+    Component.MobileNav(),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/khanhdnb/naval-garden",
     },
   }),
 }
@@ -64,5 +69,5 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer(),
   ],
-  right: [],
+  right: [Component.Graph()],
 }

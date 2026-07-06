@@ -1,0 +1,517 @@
+// ============================================================================
+// Mobile reading redesign — gated at <=768px so desktop is untouched.
+// Recreates the design handoff (bottom nav, FAB+ToC sheet, menu sheet with
+// theme toggle + font stepper, reading-progress bar, long-form typography).
+// Design tokens live as CSS custom props scoped to the mobile breakpoint.
+// ============================================================================
+
+@media all and (max-width: 768px) {
+  :root {
+    --fs: 1;
+
+    // Light tokens
+    --m-bg: #f5f1e8;
+    --m-surface: #ffffff;
+    --m-surface-2: #fbf8f1;
+    --m-ink: #232019;
+    --m-ink-soft: #6b6456;
+    --m-ink-faint: #a79e8b;
+    --m-line: #ebe5d7;
+    --m-line-strong: #ded6c4;
+    --m-shadow: rgba(40, 33, 18, 0.14);
+    --m-accent: #3f8f5b;
+    --m-accent-tint: rgba(63, 143, 91, 0.1);
+    --m-accent-line: rgba(63, 143, 91, 0.32);
+    --m-nav-h: 64px;
+  }
+
+  :root[saved-theme="dark"] {
+    --m-bg: #141310;
+    --m-surface: #1c1b15;
+    --m-surface-2: #232219;
+    --m-ink: #ece6d6;
+    --m-ink-soft: #a49d8c;
+    --m-ink-faint: #6e685b;
+    --m-line: #2b2921;
+    --m-line-strong: #3a372c;
+    --m-shadow: rgba(0, 0, 0, 0.6);
+    --m-accent: #5fb07a;
+    --m-accent-tint: rgba(63, 143, 91, 0.16);
+    --m-accent-line: rgba(95, 176, 122, 0.32);
+  }
+
+  body {
+    background: var(--m-bg);
+    color: var(--m-ink);
+  }
+
+  // --- Strip Quartz desktop chrome ------------------------------------------
+  .page > #quartz-body {
+    display: block !important;
+  }
+  .sidebar,
+  .left,
+  .right,
+  .page-title,
+  .breadcrumb-container,
+  .toc,
+  .backlinks .backlink,
+  .search .search-button span,
+  footer {
+    // handled individually below where needed
+  }
+  .page .sidebar {
+    display: none !important;
+  }
+  // Keep Search + Graph + Darkmode mounted (they power the nav) but hidden.
+  .search {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 0;
+    margin: 0;
+    .search-button {
+      display: none;
+    }
+  }
+  .graph .global-graph-icon {
+    display: none;
+  }
+  .darkmode {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+
+  // --- Article container -----------------------------------------------------
+  .page {
+    max-width: 100%;
+    margin: 0;
+  }
+  .center {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  .page .page-header {
+    margin: 0;
+  }
+
+  article {
+    padding: 24px 22px calc(118px);
+    font-size: calc(17px * var(--fs));
+    line-height: 1.62;
+    color: var(--m-ink);
+
+    p {
+      margin: 0 0 20px;
+    }
+    em {
+      font-style: italic;
+      color: var(--m-ink);
+    }
+    strong {
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Lora", serif;
+      font-weight: 600;
+      font-size: calc(29px * var(--fs));
+      line-height: 1.24;
+      letter-spacing: -0.2px;
+      margin: 0 0 14px;
+      color: var(--m-ink);
+      text-wrap: balance;
+    }
+    h2 {
+      font-family: "Lora", serif;
+      font-weight: 600;
+      font-size: calc(21px * var(--fs));
+      line-height: 1.3;
+      margin: 34px 0 12px;
+      scroll-margin-top: 64px;
+      color: var(--m-ink);
+      border: none;
+    }
+    h3 {
+      font-family: "Lora", serif;
+      font-weight: 600;
+      font-size: calc(18px * var(--fs));
+      margin: 26px 0 10px;
+      scroll-margin-top: 64px;
+      color: var(--m-ink);
+    }
+
+    a,
+    a.internal {
+      color: var(--m-accent);
+      background: none;
+      text-decoration: none;
+      border-bottom: 1px solid var(--m-accent-line);
+      padding-bottom: 1px;
+      font-weight: 500;
+      &::before {
+        display: none;
+      }
+    }
+
+    blockquote {
+      margin: 0 0 26px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--m-accent);
+      background: var(--m-surface-2);
+      border-radius: 0 12px 12px 0;
+      font-family: "Lora", serif;
+      font-style: italic;
+      font-size: calc(18px * var(--fs));
+      line-height: 1.5;
+      color: var(--m-ink-soft);
+      p {
+        margin: 0;
+      }
+    }
+
+    ul,
+    ol {
+      margin: 0 0 20px;
+      padding-left: 22px;
+      li {
+        margin-bottom: 8px;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--m-line);
+      margin: 26px 0;
+    }
+
+    table {
+      font-size: calc(14.5px * var(--fs));
+      th,
+      td {
+        border-color: var(--m-line);
+      }
+    }
+
+    img {
+      border-radius: 12px;
+    }
+  }
+
+  // ArticleTitle (Quartz renders it as .article-title h1)
+  .article-title {
+    font-family: "Lora", serif;
+    font-weight: 600;
+    font-size: calc(29px * var(--fs));
+    line-height: 1.24;
+    letter-spacing: -0.2px;
+    margin: 0 0 6px;
+    color: var(--m-ink);
+    text-wrap: balance;
+  }
+  .content-meta {
+    font-size: 13px;
+    color: var(--m-ink-faint);
+    margin: 0 0 20px;
+  }
+
+  // --- Backlinks -------------------------------------------------------------
+  .backlinks {
+    border-top: 1px solid var(--m-line);
+    padding-top: 18px;
+    margin-top: 30px;
+    overflow: visible;
+    max-height: none;
+    mask-image: none;
+    & > h3 {
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--m-ink-faint);
+      margin: 0 0 12px;
+    }
+    ul.overflow {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: none;
+    }
+    .backlink {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border: 1px solid var(--m-line);
+      border-radius: 12px;
+      background: var(--m-surface);
+      .small {
+        color: var(--m-ink);
+        border: none;
+        font-size: 14.5px;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Reading progress bar (2px, under header)
+  // ==========================================================================
+  .mobile-reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--m-line);
+    z-index: 7;
+  }
+  .mobile-reading-progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--m-accent);
+    transition: width 0.12s ease;
+  }
+
+  // ==========================================================================
+  // Bottom navigation
+  // ==========================================================================
+  .mobile-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--m-nav-h);
+    display: flex;
+    background: var(--m-surface);
+    border-top: 1px solid var(--m-line);
+    z-index: 6;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .mobile-nav-item {
+    flex: 1;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border: none;
+    background: transparent;
+    color: var(--m-ink-faint);
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    svg {
+      width: 23px;
+      height: 23px;
+    }
+    &.active {
+      color: var(--m-accent);
+    }
+  }
+
+  // ==========================================================================
+  // FAB (ToC)
+  // ==========================================================================
+  .mobile-fab {
+    position: fixed;
+    right: 18px;
+    bottom: calc(var(--m-nav-h) + 18px);
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    border: none;
+    background: var(--m-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 22px -8px var(--m-accent);
+    z-index: 6;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  // ==========================================================================
+  // Bottom sheets (shared shell) + backdrop
+  // ==========================================================================
+  .mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 8, 0.42);
+    z-index: 8;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    &.open {
+      opacity: 1;
+      animation: mFadeIn 0.18s ease;
+    }
+  }
+
+  .mobile-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--m-surface);
+    border-radius: 22px 22px 0 0;
+    padding: 10px 20px 30px;
+    padding-bottom: calc(30px + env(safe-area-inset-bottom, 0));
+    box-shadow: 0 -12px 40px -12px var(--m-shadow);
+    z-index: 9;
+    transform: translateY(102%);
+    max-height: 70vh;
+    overflow-y: auto;
+    &.open {
+      transform: translateY(0);
+      animation: mSheetUp 0.26s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+  }
+  .mobile-sheet-handle {
+    width: 38px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--m-line-strong);
+    margin: 0 auto 12px;
+  }
+  .mobile-sheet-title {
+    font-family: "Lora", serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--m-ink);
+    margin: 0 0 8px;
+    border: none;
+  }
+
+  // ToC sheet rows
+  .mobile-toc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 2px;
+    border: none;
+    background: transparent;
+    color: var(--m-ink);
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 15.5px;
+    text-align: left;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    &.depth {
+      padding-left: 20px;
+      font-size: 14.5px;
+      color: var(--m-ink-soft);
+    }
+    span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .mobile-toc-dot {
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--m-accent);
+  }
+
+  // Menu sheet rows
+  .mobile-menu-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 2px;
+    border: none;
+    background: transparent;
+    color: var(--m-ink);
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 15.5px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    border-bottom: 1px solid var(--m-line);
+    &:last-child {
+      border-bottom: none;
+    }
+    svg {
+      width: 22px;
+      height: 22px;
+      color: var(--m-ink-soft);
+      flex: 0 0 auto;
+    }
+  }
+  .mobile-menu-label {
+    flex: 1;
+  }
+  .mobile-fontstep {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    button {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--m-line-strong);
+      border-radius: 12px;
+      background: var(--m-surface-2);
+      color: var(--m-ink);
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+  .mobile-fontval {
+    min-width: 44px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--m-ink-soft);
+  }
+
+  @keyframes mSheetUp {
+    from {
+      transform: translateY(102%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  @keyframes mFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Desktop: never show the mobile-only chrome.
+@media all and (min-width: 769px) {
+  .mobile-nav,
+  .mobile-fab,
+  .mobile-toc-sheet,
+  .mobile-menu-sheet,
+  .mobile-backdrop,
+  .mobile-reading-progress {
+    display: none !important;
+  }
+}

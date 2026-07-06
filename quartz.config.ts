@@ -21,31 +21,31 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        header: "Lora",
+        body: "Be Vietnam Pro",
         code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#F5F1E8", // --bg
+          lightgray: "#EBE5D7", // --line
+          gray: "#6B6456", // --ink-soft
+          darkgray: "#232019", // --ink (body text)
+          dark: "#232019", // --ink
+          secondary: "#3F8F5B", // --accent
+          tertiary: "#347A4C", // accent darkened (hover)
+          highlight: "rgba(63,143,91,0.10)", // --accent-tint
+          textHighlight: "#f5e56b88",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          light: "#141310", // --bg
+          lightgray: "#2B2921", // --line
+          gray: "#A49D8C", // --ink-soft
+          darkgray: "#ECE6D6", // --ink
+          dark: "#ECE6D6", // --ink
+          secondary: "#5FB07A", // --accent (brighter on dark)
+          tertiary: "#3F8F5B",
+          highlight: "rgba(63,143,91,0.16)", // --accent-tint dark
           textHighlight: "#b3aa0288",
         },
       },

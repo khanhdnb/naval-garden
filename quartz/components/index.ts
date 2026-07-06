@@ -23,6 +23,10 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import MobileNav from "./MobileNav"
+import TocFab from "./TocFab"
+import ReaderSheet from "./ReaderSheet"
+import ReadingProgress from "./ReadingProgress"
 
 export {
   ArticleTitle,
@@ -50,4 +54,8 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  MobileNav,
+  TocFab,
+  ReaderSheet,
+  ReadingProgress,
 }
