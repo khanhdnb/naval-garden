@@ -58,6 +58,7 @@ Vườn này ghi lại **toàn bộ cuốn sách** theo cách của mình — ch
 
 ## ✍️ Áp dụng vào đời mình
 - [[actions/01-productize-yourself|Bài tập · Productize Yourself]]
+- [[actions/02-xay-dung-bo-nao-naval|🧠 Bài tập · Xây dựng bộ não như Naval]]
 
 ---
 
@@ -65,7 +66,7 @@ Vườn này ghi lại **toàn bộ cuốn sách** theo cách của mình — ch
 > **Kiến thức chuyên biệt · Trách nhiệm · Đòn bẩy (code + media)**
 
 ## 🕊️ Ba chân lý của hạnh phúc
-> **Hạnh phúc là kỹ năng học được · Bình yean đến từ chấp nhận · Hiện tại là tất cả những gì ta có**
+> **Hạnh phúc là kỹ năng học được · Bình yên đến từ chấp nhận · Hiện tại là tất cả những gì ta có**
 
 ---
 
